@@ -23,7 +23,7 @@ def transform(df, *args, **kwargs):
     # Split dataset into training and testing indices
     train_indices, test_indices = train_test_split(
         df.index,
-        test_size=0.2,
+        test_size=0.3,
         random_state=42,
         stratify=df["target"]
     )
