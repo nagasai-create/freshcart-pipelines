@@ -1,3 +1,4 @@
 pytest
 scikit-learn
 pandas
+pika==1.4.4
