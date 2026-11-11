@@ -7,3 +7,7 @@ __pycache__/
 venv/
 .venv/
 .ipynb_checkpoints/
+# Local Mage configuration and temporary files
+**/.ssh_tunnel/
+iris_project/io_config.yaml
+*.zip

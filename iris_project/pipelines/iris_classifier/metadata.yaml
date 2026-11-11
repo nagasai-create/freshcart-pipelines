@@ -1,0 +1,64 @@
+
+blocks:
+- name: load_iris
+  uuid: load_iris
+  type: data_loader
+  upstream_blocks: []
+  downstream_blocks:
+  - prepare_data
+  status: not_executed
+  all_upstream_blocks_executed: true
+
+- name: prepare_data
+  uuid: prepare_data
+  type: transformer
+  upstream_blocks:
+  - load_iris
+  downstream_blocks:
+  - train_model
+  - knn_model
+  status: not_executed
+  all_upstream_blocks_executed: false
+
+- name: train_model
+  uuid: train_model
+  type: transformer
+  upstream_blocks:
+  - prepare_data
+  downstream_blocks:
+  - save_results
+  - evaluate_model
+  status: not_executed
+  all_upstream_blocks_executed: false
+
+- name: save_results
+  uuid: save_results
+  type: data_exporter
+  upstream_blocks:
+  - train_model
+  downstream_blocks: []
+  status: not_executed
+  all_upstream_blocks_executed: false
+
+- name: evaluate_model
+  uuid: evaluate_model
+  type: transformer
+  upstream_blocks:
+  - train_model
+  downstream_blocks: []
+  status: not_executed
+  all_upstream_blocks_executed: false
+
+- name: knn_model
+  uuid: knn_model
+  type: transformer
+  upstream_blocks:
+  - prepare_data
+  downstream_blocks: []
+  status: not_executed
+  all_upstream_blocks_executed: false
+
+name: iris_classifier
+type: python
+uuid: iris_classifier
+widgets: []
